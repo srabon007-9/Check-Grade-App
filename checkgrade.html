@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container form label {
+    margin-bottom: 5px;
+}
+
+.container form input[type="text"]{
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%; /* Set input fields to full width */
+}
+
+.container form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.container form button:hover {
+    background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Check Gradesheet</h2>
+    <form onsubmit="event.preventDefault(); login();">
+        
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <button type="submit" id="loginButton">Login</button>
+        
+        <div>
+            <p>Note: Please login to your usis before downloading!</p>
+        </div>
+        <div>
+            <button id="openLinkButton">Open Usis</button>
+        </div>
+    </form>
+</div>
+
+<script>
+function login() {
+    var name = document.getElementById("name").value;
+    var id = document.getElementById("id").value;
+
+    if (name.trim() === "" || id.trim() === "") {
+        alert("Please enter both name and ID.");
+        return;
+    }
+
+    console.log("Name:", name);
+    console.log("ID:", id);
+
+    // Open the download link
+    var download_link = `https://usis.bracu.ac.bd/academia/docuJasper/index?studentId=${id}&reportFormat=PDF&old_id_no=${id}&strMessage=&scholarProgramMsg=&companyLogo=%2Fvar%2Facademia%2Fimage%2FuniversityLogo%2F1571986355.jpg&companyName=BRAC+University&headerTitle=GRADE+SHEET&companyAddress=66%2C+MOHAKHALI+C%2FA%2C+DHAKA+-+1212.&academicStanding=unknown &gradeSheetBackground=%2Fbits%2Fusis%2Ftomcat%2Fwebapps%2Facademia%2Fimages%2FgradeSheetBackground.jpg&_format=PDF&_name=${name}&_file=student%2FrptStudentGradeSheetForStudent.jasper`;
+    window.open(download_link, "_blank");
+}
+
+document.getElementById("openLinkButton").addEventListener("click", function() {
+
+    var link = "https://usis.bracu.ac.bd/academia/";
+
+    window.open(link, "_blank");
+});
+</script>
+
+</body>
+</html>
