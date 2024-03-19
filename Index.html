@@ -21,8 +21,8 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 40px;
-    width: 25vw;
-    
+    width: 90%; /* Adjusted width for responsiveness */
+    max-width: 400px; /* Added maximum width to prevent container from becoming too wide */
 }
 
 .container h2 {
@@ -61,6 +61,13 @@ body {
 
 .container form button:hover {
     background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
 }
 </style>
 <script>
