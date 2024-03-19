@@ -5,9 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login</title>
 <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #002751;
     margin: 0;
     padding: 0;
     display: flex;
@@ -20,8 +25,9 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
+    padding: 40px;
+    width: 25vw;
+    
 }
 
 .container h2 {
@@ -32,10 +38,12 @@ body {
 .container form {
     display: flex;
     flex-direction: column;
+    
 }
 
 .container form label {
     margin-bottom: 5px;
+    
 }
 
 .container form input[type="text"]{
@@ -60,6 +68,22 @@ body {
 .container form button:hover {
     background-color: #0056b3;
 }
+.name{
+    height: 33px;
+    width: 33px;
+    background-color: none;
+    padding: 25px 45px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    position: absolute;
+    bottom: 5px;
+    left: 12px;
+    color: white;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -73,10 +97,10 @@ body {
             <input type="text" id="name" name="name">
         </div>
         <div>
-            <label for="id">ID:</label>
+            <label for="id">Student ID:</label>
             <input type="text" id="id" name="id">
         </div>
-        <button type="submit" id="loginButton">Login</button>
+        <button type="submit" id="loginButton">Check!</button>
         
         <div>
             <p>Note: Please login to your usis before downloading!</p>
@@ -85,6 +109,10 @@ body {
             <button id="openLinkButton">Open Usis</button>
         </div>
     </form>
+</div>
+
+<div class="name">
+    <p>A.R.K.</p>
 </div>
 
 <script>
@@ -101,7 +129,7 @@ function login() {
     console.log("ID:", id);
 
     // Open the download link
-    var download_link = `https://usis.bracu.ac.bd/academia/docuJasper/index?studentId=${id}&reportFormat=PDF&old_id_no=${id}&strMessage=&scholarProgramMsg=&companyLogo=%2Fvar%2Facademia%2Fimage%2FuniversityLogo%2F1571986355.jpg&companyName=BRAC+University&headerTitle=GRADE+SHEET&companyAddress=66%2C+MOHAKHALI+C%2FA%2C+DHAKA+-+1212.&academicStanding=unknown &gradeSheetBackground=%2Fbits%2Fusis%2Ftomcat%2Fwebapps%2Facademia%2Fimages%2FgradeSheetBackground.jpg&_format=PDF&_name=${name}&_file=student%2FrptStudentGradeSheetForStudent.jasper`;
+    var download_link = `https://usis.bracu.ac.bd/academia/docuJasper/index?studentId=${id}&reportFormat=PDF&old_id_no=${id}&strMessage=&scholarProgramMsg=&companyName=AMOLNAMA&academicStanding=Allah Vorosha &_format=PDF&_name=${name}&_file=student%2FrptStudentGradeSheetForStudent.jasper`;
     window.open(download_link, "_blank");
 }
 
